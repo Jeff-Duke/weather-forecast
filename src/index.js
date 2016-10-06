@@ -7,7 +7,8 @@ import Routes from './routes';
 import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
 import reducer from './reducers';
-import './style/styles.css'
+require("!style!css!sass!./style/styles.scss");
+
 
 const middleware = [thunk, createLogger];
 const store = createStore(
