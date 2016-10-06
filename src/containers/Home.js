@@ -7,10 +7,10 @@ class Home extends Component {
     return (
       <div>
       <Link to="/PinnedCities">
-        <button>Go To Pinned Cities</button>
+        <button>Edit Pinned Cities</button>
       </Link>
       <Link to="/ExtendedForecast">
-        <button>Go To Extended Forecast</button>
+        <button>View Extended Forecast</button>
       </Link>
     </div>
     )
