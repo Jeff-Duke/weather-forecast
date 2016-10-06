@@ -1,22 +1,24 @@
-import React from 'react'
-import { render } from 'react-dom'
-import { createStore, applyMiddleware } from 'redux'
-import { Provider } from 'react-redux'
-import thunk from 'redux-thunk'
-import createLogger from 'redux-logger'
-import reducer from './reducers'
-import App from './containers/App'
+import React from 'react';
+import { render } from 'react-dom';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
+import { browserHistory } from 'react-router';
+import Routes from './routes';
+import thunk from 'redux-thunk';
+import createLogger from 'redux-logger';
+import reducer from './reducers';
+import './style/styles.css'
 
-const middleware = [ thunk, createLogger ]
-
+const middleware = [thunk, createLogger];
 const store = createStore(
-  reducer,
+  combineReducers({
+    weatherApp: reducer,
+  }),
   applyMiddleware(...middleware)
 )
-
 render(
   <Provider store={store}>
-    <App />
+    <Routes history={browserHistory} />
   </Provider>,
   document.getElementById('root')
 )
