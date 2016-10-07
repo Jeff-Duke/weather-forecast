@@ -4,11 +4,9 @@ const weather = (state = {}, action) => {
   switch (action.type) {
     case REQUEST_FORECAST:
         return state;
-    
+
     case RECEIVE_FORECAST:
-        return  {
-            city: name,
-        };
+        return state;
     default:
       return state;
   }
