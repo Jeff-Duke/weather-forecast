@@ -11,4 +11,4 @@ class ExtendedForecast extends Component {
   }
 }
 
-export default ExtendedForecast
+export default ExtendedForecast;

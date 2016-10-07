@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 class PinnedCities extends Component {
   render() {
     return (
-      <p>Yoo! this is pinned cities</p>
+      <p>Yo! this is pinned cities</p>
     )
   }
 }

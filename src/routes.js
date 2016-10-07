@@ -1,11 +1,11 @@
 
 import React from 'react';
 import { Router, Route, IndexRoute } from 'react-router';
-import Home from './containers/Home'
-import PinnedCities from './containers/PinnedCities'
-import ExtendedForecast from './containers/ExtendedForecast'
+import Home from './components/Home';
+import PinnedCities from './components/PinnedCities';
+import ExtendedForecast from './components/ExtendedForecast';
 
-import App from './containers/App';
+import App from './components/App';
 
 const Routes = (props) => (
   <Router {...props}>
