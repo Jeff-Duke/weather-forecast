@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Router, IndexRoute, Route, browserHistory, Link } from 'react-router';
+import { fetchWeatherByZip } from './actions/index';
 
 class App extends Component {
   render() {
@@ -16,10 +17,16 @@ class App extends Component {
   }
 }
 
-// const mapStateToProps = state => {
-//   // return an object of redux store data
-//   // that you'd like available in your component
-//   return {};
-// }
+const mapStateToProps = state => {
+  // return an object of redux store data
+  // that you'd like available in your component
+  return {
+    weather: state.weather
+  };
+}
+
+const mapDispatchToProps = (zip) => {
+
+}
 
 export default App

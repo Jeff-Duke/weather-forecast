@@ -1,6 +1,8 @@
-import fetch from 'isomorphic-fetch'
-export const RECEIVE_FORECAST = 'RECEIVE_FORECAST'
-export const REQUEST_FORECAST = 'REQUEST_FORECAST'
+//Actions
+
+import fetch from 'isomorphic-fetch';
+export const RECEIVE_FORECAST = 'RECEIVE_FORECAST';
+export const REQUEST_FORECAST = 'REQUEST_FORECAST';
 const API_URL = 'http://api.openweathermap.org/data/2.5/weather?zip=94040,us&appid=b248d23bebc3f14165312ce58845f0c4'
 
 export function fetchWeatherByZip(zip) {

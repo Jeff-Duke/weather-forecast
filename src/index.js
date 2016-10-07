@@ -6,17 +6,18 @@ import { browserHistory } from 'react-router';
 import Routes from './routes';
 import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
-import reducer from './reducers';
+import weather from './reducers/weather';
 require("!style!css!sass!./style/styles.scss");
-
 
 const middleware = [thunk, createLogger];
 const store = createStore(
   combineReducers({
-    weatherApp: reducer,
+    weatherApp: weather,
   }),
-  applyMiddleware(...middleware)
-)
+  applyMiddleware(...middleware),
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+
 render(
   <Provider store={store}>
     <Routes history={browserHistory} />
