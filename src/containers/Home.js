@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Router, IndexRoute, Route, browserHistory, Link } from 'react-router';
 
 class Home extends Component {
