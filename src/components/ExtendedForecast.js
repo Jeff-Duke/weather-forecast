@@ -4,9 +4,11 @@ import { connect } from 'react-redux';
 class ExtendedForecast extends Component {
   render() {
     return (
-      <p>Yo! This is extended forecast</p>
+      <section className="extended-container">
+        5 day / 3 hour forecast for selected city
+      </section>
     )
   }
 }
 
-export default ExtendedForecast
+export default ExtendedForecast;
