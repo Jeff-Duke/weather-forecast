@@ -6,7 +6,7 @@ const AddCity = React.createClass({
     return (
       <section className="add-city-container">
         <input
-          type="text"
+          type="number"
           className="add-zip-field"
           placeholder="Zip Code" />
         <button
