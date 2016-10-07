@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
+import { fetchWeatherByZip } from '../actions/index';
 
 const Header = React.createClass({
   render() {
@@ -14,7 +15,10 @@ const Header = React.createClass({
             <p className="forecast-current">
               Current forecast for Denver: rain 50&#8457;
             </p>
-            <button className="weather-button">
+            <button
+            className="weather-button"
+            onClick={fetchWeatherByZip}
+            >
               Load current weather
             </button>
             <Link to="/ExtendedForecast"
