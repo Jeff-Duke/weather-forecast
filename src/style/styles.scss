@@ -1,3 +1,4 @@
-body {
-  background-color: gray;
-}
+@import '_reset';
+@import '_variables';
+@import '_header-main';
+@import '_extended-forecast';

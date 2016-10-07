@@ -1,0 +1,47 @@
+body {
+  background-color: #EEEEEE;
+  font-family: $main-font;
+}
+
+.title {
+  font-size: 2em;
+  margin-top: 20px;
+  margin-bottom: 25px;
+}
+
+.header-stripe {
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  align-items: center;
+
+  .header-text-container {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: auto;
+  }
+}
+
+.forecast-current {
+  color: white;
+  display: flex;
+
+}
+
+.weather-button {
+  display: flex;
+  height: 20px;
+  width: 100px;
+  margin-left: auto;
+
+}
+
+.forecast-extended {
+  color: #89CB89;
+  display: flex;
+  margin-left: auto;
+  text-decoration: none;
+}
