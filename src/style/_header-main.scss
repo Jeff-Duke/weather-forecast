@@ -18,6 +18,10 @@ body {
   @media screen and (min-width: 400px) {
     margin-left: 10px;
     text-align: left;
+    width: 250px;
+    &:hover {
+     font-weight: 700;
+    }
   }
 }
 
@@ -61,6 +65,9 @@ body {
   display: flex;
   margin-left: auto;
   text-decoration: none;
+  &:hover {
+   font-weight: 700;
+  }
 }
 
 .edit-cities {
@@ -69,4 +76,7 @@ body {
   float: right;
   margin-top: 40px;
   margin-right: 20px;
+  &:hover {
+   font-weight: 700;
+  }
 }
