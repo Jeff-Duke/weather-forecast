@@ -6,7 +6,9 @@ const Header = React.createClass({
   render() {
     return (
       <header className="header">
-        <h1 className="title">Weather Tracker</h1>
+        <Link to="/">
+          <h1 className="main-title">Weather Tracker</h1>
+        </Link>
         <section className="header-stripe">
           <section className="header-text-container">
             <p className="forecast-current">

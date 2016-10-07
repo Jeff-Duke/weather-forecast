@@ -46,12 +46,115 @@ table {
   border-spacing: 0; }
 
 body {
-  background-color: #EEEEEE; }
+  background-color: #EEEEEE;
+  font-family: "Fira Sans", sans-serif; }
 
-.title {
-  font-family: "Fira Sans", sans-serif;
+.header {
+  text-decoration: none; }
+
+.main-title {
+  color: black;
   font-size: 2em;
-  margin-top: 5px;
-  margin-bottom: 5px; }
+  margin-top: 20px;
+  margin-bottom: 25px;
+  text-align: center;
+  text-decoration: none; }
+  @media screen and (min-width: 400px) {
+    .main-title {
+      margin-left: 10px;
+      text-align: left; } }
+
+.header-stripe {
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  height: 70px;
+  align-items: center; }
+  @media screen and (min-width: 400px) {
+    .header-stripe {
+      height: 50px; } }
+  .header-stripe .header-text-container {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: auto; }
+
+.forecast-current {
+  color: white;
+  display: flex; }
+
+.weather-button {
+  display: flex;
+  height: 20px;
+  width: 100px;
+  margin-left: auto; }
+
+.forecast-extended {
+  color: #89CB89;
+  display: flex;
+  margin-left: auto;
+  text-decoration: none; }
+
+.edit-cities {
+  color: black;
+  text-decoration: none;
+  float: right;
+  margin-top: 40px;
+  margin-right: 20px; }
+
+.pinned-cities {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+
+.city-card {
+  background-color: #D5E9F3;
+  border: 1px solid #3A7A99;
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+  width: 300px;
+  margin: auto;
+  margin-top: 20px; }
+
+.city-title {
+  margin-top: 20px;
+  text-align: center; }
+
+.pinned-forecast-extended {
+  color: black;
+  text-decoration: none;
+  margin: auto;
+  margin-top: 20px; }
+
+.pin-card {
+  background-color: #DDDDDD;
+  border: 1px solid #CACACA;
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+  width: 300px;
+  margin: auto;
+  margin-top: 20px;
+  justify-content: center; }
+
+.pin-title {
+  font-size: 2em;
+  text-align: center; }
+
+.extended-container {
+  background-color: #D5E9F3;
+  border: 1px solid #3A7A99;
+  height: 70vh;
+  width: 80%;
+  margin: auto;
+  margin-top: 20px; }
+
+.settings-title {
+  color: black;
+  font-size: 1.25em;
+  margin-top: 20px;
+  margin-bottom: 25px; }
 
 /*# sourceMappingURL=styles.css.map */

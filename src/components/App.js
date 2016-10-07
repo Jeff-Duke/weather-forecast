@@ -10,9 +10,6 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <Link to="/">
-          <button>Go Home</button>
-        </Link>
         <div>{this.props.children}</div>
       </div>
     )

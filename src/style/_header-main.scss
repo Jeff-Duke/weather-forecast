@@ -3,18 +3,34 @@ body {
   font-family: $main-font;
 }
 
-.title {
+.header {
+  text-decoration: none;
+
+}
+
+.main-title {
+  color: black;
   font-size: 2em;
   margin-top: 20px;
   margin-bottom: 25px;
+  text-align: center;
+  text-decoration: none;
+  @media screen and (min-width: 400px) {
+    margin-left: 10px;
+    text-align: left;
+  }
 }
 
 .header-stripe {
   background-color: black;
   display: flex;
   flex-direction: row;
-  height: 50px;
+  height: 70px;
   align-items: center;
+  @media screen and (min-width: 400px) {
+    height: 50px;
+
+  }
 
   .header-text-container {
     width: 90%;
@@ -34,8 +50,9 @@ body {
 .weather-button {
   display: flex;
   height: 20px;
-  width: 100px;
+  width: 140px;
   margin-left: auto;
+  text-align: center;
 
 }
 
@@ -44,4 +61,12 @@ body {
   display: flex;
   margin-left: auto;
   text-decoration: none;
+}
+
+.edit-cities {
+  color: black;
+  text-decoration: none;
+  float: right;
+  margin-top: 40px;
+  margin-right: 20px;
 }

@@ -1,0 +1,47 @@
+.pinned-cities {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.city-card {
+  background-color: #D5E9F3;
+  border: 1px solid #3A7A99;
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+  width: 300px;
+  margin: auto;
+  margin-top: 20px;
+  // justify-content: center;
+}
+
+.city-title {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.pinned-forecast-extended {
+  color: black;
+  text-decoration: none;
+  margin: auto;
+  margin-top: 20px;
+
+}
+
+.pin-card {
+  background-color: #DDDDDD;
+  border: 1px solid #CACACA;
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+  width: 300px;
+  margin: auto;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.pin-title {
+  font-size: 2em;
+  text-align: center;
+}
