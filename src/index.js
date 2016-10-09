@@ -7,11 +7,14 @@ import Routes from './routes';
 import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
 
+import rootReducer from './reducers/rootReducer';
+
 require("!style!css!sass!./style/styles.scss");
 
 const middleware = [thunk, createLogger];
 
 const store = createStore(
+  rootReducer,
   compose (
     applyMiddleware(...middleware),
     window.devToolsExtension ? window.devToolsExtension() : f => f

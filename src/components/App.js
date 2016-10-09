@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {fetchLocalWeather} from '../actions/index';
+import { fetchLocalWeather } from '../actions/index';
 // import { Router, IndexRoute, Route, browserHistory, Link } from 'react-router';
 // import { fetchWeatherByZip } from '../actions/index';
+
+import localWeather from '../actions/data/weather';
 
 import Header from './Header';
 
@@ -14,7 +16,7 @@ class App extends Component {
             return;
         }
         navigator.geolocation.getCurrentPosition(function(position) {
-            fetchLocalWeather(position);
+            fetchLocalWeather(localWeather);
         });
     }
 
@@ -25,7 +27,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Header/>
+                <Header />
                 <div>{this.props.children}</div>
             </div>
         )

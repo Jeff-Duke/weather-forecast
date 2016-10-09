@@ -1,13 +1,10 @@
-const defaultProperties = {
-  localWeather: {},
-  pinnedCities: []
+export const fetchLocalWeather = (localWeather) => {
+    return {
+        type: 'LOCAL_WEATHER',
+        localWeather: {temp: localWeather.main.temp, condition: localWeather.weather[0].main },
+    };
 };
 
-export const fetchLocalWeather = (position) => {
-  return {
-    type: 'LOCAL_WEATHER',
-    position: Object.assign(defaultProperties, {
-      localLat: position.coords.latitude,
-      localLong: position.coords.longitude}, position )
-  }.then(console.log(defaultProperties));
-};
+
+//use redux-thunk to take the default lat and long and make an API call
+//API call will update the localweather object in the state

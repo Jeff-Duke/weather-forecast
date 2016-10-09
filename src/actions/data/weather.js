@@ -1,4 +1,4 @@
-const denverWeather = {
+const localWeather = {
     "coord": {
         "lon": -104.98,
         "lat": 39.74
@@ -11,7 +11,7 @@ const denverWeather = {
     }],
     "base": "stations",
     "main": {
-        "temp": 286.437,
+        "temp": 55,
         "pressure": 821.17,
         "humidity": 32,
         "temp_min": 286.437,
@@ -38,4 +38,4 @@ const denverWeather = {
     "cod": 200
 };
 
-export default denverWeather;
+export default localWeather;
