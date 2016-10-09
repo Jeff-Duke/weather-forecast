@@ -1,10 +1,11 @@
 const localWeatherReducer = (state = [], action) => {
+  console.log(action.type);
   switch (action.type) {
     case 'LOCAL_WEATHER':
-        return [...state, {localWeather: {
-          localTemp: 65,
-          localCondition: action.localWeather.weather[0].main}
-        }];
+        return [...state, {localWeather: action.localWeather}];
+    case 'GPS_LOCAL_WEATHER':
+      console.log(action);
+      return state;
     default:
       return state;
   }

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const Header = ({ onLoadWeather, localWeather }) => {
+  let localTemp = localWeather.main.temp || 22;
   return (
     <header className="header">
       <Link to="/">
@@ -10,7 +11,9 @@ const Header = ({ onLoadWeather, localWeather }) => {
       <section className="header-stripe">
         <section className="header-text-container">
           <p className="forecast-current">
-            Current forecast for Denver: {localWeather.localTemp}
+            Current forecast for Denver: <br/>
+            Temp: {localTemp} <br/>
+            Condition: {localWeather.weather[0].main}
           </p>
           <button
           className="weather-button"
