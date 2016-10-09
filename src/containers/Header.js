@@ -3,19 +3,17 @@ import Header from '../components/Header';
 
 import { fetchLocalWeather } from '../actions/index';
 
+import localWeather from '../actions/data/weather';
+
 const mapStateToProps = (state) => {
   return {
-    localWeather: {
-      temp: 75,
-      condition: 'Sunny as hell yo'
-    }
+    localWeather: localWeather
   };
 };
 
 const mapDispatchToProps=(dispatch) => {
   return {
     onLoadWeather(localWeather){
-      console.log('Container hit!');
       dispatch(fetchLocalWeather(localWeather));
     }
   };

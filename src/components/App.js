@@ -4,9 +4,7 @@ import { fetchLocalWeather } from '../actions/index';
 // import { Router, IndexRoute, Route, browserHistory, Link } from 'react-router';
 // import { fetchWeatherByZip } from '../actions/index';
 
-import localWeather from '../actions/data/weather';
-
-import Header from './Header';
+import Header from '../containers/Header';
 
 class App extends Component {
 
@@ -16,7 +14,7 @@ class App extends Component {
             return;
         }
         navigator.geolocation.getCurrentPosition(function(position) {
-            fetchLocalWeather(localWeather);
+            console.log(position);
         });
     }
 
