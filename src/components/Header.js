@@ -10,7 +10,7 @@ const Header = ({ onLoadWeather, localWeather }) => {
       <section className="header-stripe">
         <section className="header-text-container">
           <p className="forecast-current">
-            Current forecast for Denver: {localWeather.main.temp}
+            Current forecast for Denver: {localWeather.localTemp}
           </p>
           <button
           className="weather-button"

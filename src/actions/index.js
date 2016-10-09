@@ -1,8 +1,7 @@
 export const fetchLocalWeather = (localWeather) => {
-    console.log('The action feels that the local weather is', localWeather);
     return {
         type: 'LOCAL_WEATHER',
-        localWeather: {temp: localWeather.main.temp, condition: localWeather.weather[0].main },
+        localWeather
     };
 };
 

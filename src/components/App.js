@@ -4,7 +4,7 @@ import { fetchLocalWeather } from '../actions/index';
 // import { Router, IndexRoute, Route, browserHistory, Link } from 'react-router';
 // import { fetchWeatherByZip } from '../actions/index';
 
-import Header from '../containers/Header';
+import HeaderContainer from '../containers/HeaderContainer';
 
 class App extends Component {
 
@@ -25,7 +25,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Header />
+                <HeaderContainer />
                 <div>{this.props.children}</div>
             </div>
         )
