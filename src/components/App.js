@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import { fetchLocalWeather } from '../actions/index';
+import { fetchWeatherByGPS } from '../actions/index';
 // import { Router, IndexRoute, Route, browserHistory, Link } from 'react-router';
 // import { fetchWeatherByZip } from '../actions/index';
 
@@ -13,8 +13,8 @@ class App extends Component {
             console.error('geolocation is not supported by your browser');
             return;
         }
-        navigator.geolocation.getCurrentPosition(function(position) {
-            console.log(position);
+        navigator.geolocation.getCurrentPosition((position) => {
+            fetchWeatherByGPS(position);
         });
     }
 
