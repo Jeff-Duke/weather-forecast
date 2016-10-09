@@ -1,31 +1,35 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Router, IndexRoute, Route, browserHistory, Link } from 'react-router';
-import { fetchWeatherByZip } from '../actions/index';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {fetchLocalWeather} from '../actions/index';
+// import { Router, IndexRoute, Route, browserHistory, Link } from 'react-router';
+// import { fetchWeatherByZip } from '../actions/index';
 
 import Header from './Header';
 
 class App extends Component {
-  render() {
-    return (
-      <div>
-        <Header />
-        <div>{this.props.children}</div>
-      </div>
-    )
-  }
-}
 
-const mapStateToProps = state => {
-  // return an object of redux store data
-  // that you'd like available in your component
-  return {
-    weather: state.weather
-  };
-}
+    findLocalCoordinates() {
+        if (!navigator.geolocation) {
+            console.error('geolocation is not supported by your browser');
+            return;
+        }
+        navigator.geolocation.getCurrentPosition(function(position) {
+            fetchLocalWeather(position);
+        });
+    }
 
-const mapDispatchToProps = (zip) => {
+    componentDidMount() {
+        this.findLocalCoordinates();
+    }
 
+    render() {
+        return (
+            <div>
+                <Header/>
+                <div>{this.props.children}</div>
+            </div>
+        )
+    }
 }
 
 export default App;
