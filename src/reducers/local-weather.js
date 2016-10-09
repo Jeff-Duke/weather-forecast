@@ -3,7 +3,7 @@ const localWeatherReducer = (state = [], action) => {
   switch (action.type) {
     case 'LOCAL_WEATHER':
         return [...state, {localWeather: action.localWeather}];
-    case 'GPS_LOCAL_WEATHER':
+    case 'GPS_CURRENT_LOCAL_WEATHER':
       console.log(action);
       return state;
     default:

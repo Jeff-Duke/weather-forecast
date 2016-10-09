@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import { fetchWeatherByGPS } from '../actions/index';
+import { fetchCurrentWeatherByGPS } from '../actions/index';
 // import { Router, IndexRoute, Route, browserHistory, Link } from 'react-router';
 // import { fetchWeatherByZip } from '../actions/index';
 
@@ -14,7 +14,7 @@ class App extends Component {
             return;
         }
         navigator.geolocation.getCurrentPosition((position) => {
-            fetchWeatherByGPS(position);
+            fetchCurrentWeatherByGPS(position);
         });
     }
 
