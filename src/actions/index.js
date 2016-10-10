@@ -1,5 +1,7 @@
 import fetch from 'isomorphic-fetch';
 
+const apiKey = 'cbc43ed2ea5ef4a7aa9e8cf85994a583';
+
 export const fetchLocalWeather = (localWeather) => {
     return {
         type: 'LOCAL_WEATHER',
@@ -7,18 +9,36 @@ export const fetchLocalWeather = (localWeather) => {
     };
 };
 
-export const receiveGPSWeather = (json) => {
-    console.log('recieveGPSWeather dispatched', json);
+export const receiveCurrentWeatherByGPS = (json) => {
     return {
-        type: 'GPS_LOCAL_WEATHER',
+        type: 'CURRENT_LOCAL_WEATHER_GPS',
+        currentLocalForecast: json
+    };
+};
+
+export const receiveCurrentWeatherByZip = json => {
+    return {
+        type: 'CURRENT_LOCAL_WEATHER_ZIP',
         json
     };
 };
 
-export const fetchWeatherByGPS = (position) => {
-    const apiKey = 'cbc43ed2ea5ef4a7aa9e8cf85994a583';
-    let weatherURL = `http://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial&appid=${apiKey}`;
-    return fetch(weatherURL)
-        .then(response => response.json())
-        .then(jsonResponse => receiveGPSWeather(jsonResponse));
+export const fetchCurrentWeatherByGPS = (position) => {
+    let weatherURLbyGPS = `http://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial&appid=${apiKey}`;
+
+    return (dispatch) => {
+        return fetch(weatherURLbyGPS)
+            .then(response => response.json())
+            .then(jsonResponse => dispatch(receiveCurrentWeatherByGPS(jsonResponse)));
+    };
+};
+
+export const fetchCurrentWeatherByZip = (zipcode) => {
+    let weatherURLbyZip = `http://api.openweathermap.org/data/2.5/weather?zip=${zipcode},us&units=imperial&appid=${apiKey}`;
+
+    return dispatch => {
+        return fetch(weatherURLbyZip)
+            .then(response => response.json())
+            .then(jsonResponse => dispatch(receiveCurrentWeatherByZip(jsonResponse)));
+    };
 };

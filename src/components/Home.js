@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Router, IndexRoute, Route, browserHistory, Link } from 'react-router';
+import { Link } from 'react-router';
 
 import CityCard from './CityCard';
 import PinCard from './PinCard';
