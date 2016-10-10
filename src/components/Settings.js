@@ -18,7 +18,8 @@ console.log(onSubmit, pinnedCitiesArray);
           className="add-city-container"
           onSubmit={ (e) => {
             e.preventDefault();
-            this.props.onSubmit(input.value);
+            console.log(input.value);
+            onSubmit(input.value);
           }}
         >
           <input
