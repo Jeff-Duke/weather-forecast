@@ -38,4 +38,5 @@ const localWeather = {
     "cod": 200
 };
 
+
 export default localWeather;
