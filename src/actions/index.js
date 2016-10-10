@@ -23,6 +23,13 @@ export const receiveCurrentWeatherByZip = json => {
     };
 };
 
+export const receiveCurrentExtendedForecast = json => {
+    return {
+        type: 'CURRENT_EXTENDED_FORECAST',
+        extendedForecast: json
+    };
+};
+
 export const fetchCurrentWeatherByGPS = (position) => {
     let weatherURLbyGPS = `http://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial&appid=${apiKey}`;
 
@@ -40,5 +47,15 @@ export const fetchCurrentWeatherByZip = (zipcode) => {
         return fetch(weatherURLbyZip)
             .then(response => response.json())
             .then(jsonResponse => dispatch(receiveCurrentWeatherByZip(jsonResponse)));
+    };
+};
+
+export const fetchLocalExtendedForecast = (position) => {
+    let weatherURLextendedForecast = `http://api.openweathermap.org/data/2.5/forecast?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial&appid=${apiKey}`;
+
+    return dispatch => {
+        return fetch(weatherURLextendedForecast)
+            .then(response => response.json())
+            .then(jsonResponse => dispatch(receiveCurrentExtendedForecast(jsonResponse)));
     };
 };
