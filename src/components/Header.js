@@ -9,13 +9,16 @@ const Header = ({localWeatherReducer}) => {
             </Link>
             <section className="header-stripe">
                 <section className="header-text-container">
-                    <p className="forecast-current">
-                        {Object.keys(localWeatherReducer).length > 0
-                            ? `Current forecast for ${localWeatherReducer.name}
-                                  Temp: ${Math.round(localWeatherReducer.main.temp)}
-                                  Condition: ${localWeatherReducer.weather[0].main}`
-                            : `Fetching Local Weather ...`}
-                    </p>
+                  <article className="forecast-current">
+                      {Object.keys(localWeatherReducer).length > 0
+                          ? <ul>
+                              <li>Current forecast for {localWeatherReducer.name}</li>
+                              <li>Temp: {Math.round(localWeatherReducer.main.temp)}</li>
+                              <li>Condition: {localWeatherReducer.weather[0].main}</li>
+                          </ul>
+
+                          : <p>Fetching Local Weather ...</p>}
+                  </article>
                     <Link to="/ExtendedForecast" className="forecast-extended">
                         View Extended Forecast &#10163;
                     </Link>
