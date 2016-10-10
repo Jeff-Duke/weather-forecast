@@ -10,30 +10,30 @@ export const fetchLocalWeather = (localWeather) => {
 };
 
 export const receiveCurrentWeatherByGPS = (json) => {
-    console.log('recieveGPSWeather dispatched', json);
     return {
         type: 'CURRENT_LOCAL_WEATHER_GPS',
-        json
+        currentLocalForecast: json
     };
 };
 
 export const receiveCurrentWeatherByZip = json => {
     console.log('receiveCurrentWeatherByZip called', json);
     return {
-        type: 'CURRENT_LOCAL_WEATHER_GPS',
+        type: 'CURRENT_LOCAL_WEATHER_ZIP',
         json
     };
 };
 
-export const fetchCurrentWeatherByGPS = (position) => (dispatch) => {
-    let weatherURLbyGPS = `http://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial&appid=${apiKey}`;
-    console.log('weatherbygps is about to dispatch');
-    // return dispatch => {
+export const fetchCurrentWeatherByGPS = (position) => {
+    return (dispatch) => {
+        let weatherURLbyGPS = `http://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial&appid=${apiKey}`;
+        console.log('weatherbygps is about to dispatch');
         console.log('weatherbygps called');
+
         return fetch(weatherURLbyGPS)
             .then(response => response.json())
             .then(jsonResponse => dispatch(receiveCurrentWeatherByGPS(jsonResponse)));
-    // };
+    };
 };
 
 export const fetchCurrentWeatherByZip = (zipcode) => {

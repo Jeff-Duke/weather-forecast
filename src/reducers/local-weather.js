@@ -1,12 +1,15 @@
-const localWeatherReducer = (state = [], action) => {
+const localWeatherReducer = (state = {}, action) => {
   console.log(action.type);
   switch (action.type) {
+
     case 'LOCAL_WEATHER':
-        console.log('local-weather-action')
-        return [...state, {localWeather: action.localWeather}];
+        console.log('Local Weather');
+        return Object.assign({}, state, action.localWeather);
+
     case 'CURRENT_LOCAL_WEATHER_GPS':
       console.log('gps-local-weather');
-      return state;
+      return Object.assign({}, state, action.currentLocalForecast);
+
     default:
       return state;
   }
