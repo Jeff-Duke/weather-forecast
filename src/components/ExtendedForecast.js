@@ -1,13 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class ExtendedForecast extends Component {
-  render() {
+const ExtendedForecast = ({ExtendedForecast}) => {
+  console.log(ExtendedForecast)
     return (
       <section className="extended-container">
-        5 day / 3 hour forecast for selected city
+          {Object.keys(ExtendedForecast).length > 0 ?
+        <ul>
+          <li>Current forecast for {ExtendedForecast.city.name}</li>
+          <li>Current forecast for {ExtendedForecast.list[0].main.temp}</li>
+        </ul>
+          : <p>Fetching 5 day/3 hour forecast...</p>}
       </section>
     )
   }
-}
+
 
 export default ExtendedForecast;
