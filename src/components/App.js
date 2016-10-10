@@ -1,10 +1,23 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { fetchCurrentWeatherByGPS } from '../actions/index';
 // import { Router, IndexRoute, Route, browserHistory, Link } from 'react-router';
 // import { fetchWeatherByZip } from '../actions/index';
 
 import HeaderContainer from '../containers/HeaderContainer';
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        actions: bindActionCreators(fetchCurrentWeatherByGPS, dispatch)
+    };
+};
+
+const mapStateToProps = (state) => {
+    return {
+        localWeather: state.localWeather
+    };
+};
 
 class App extends Component {
 
@@ -32,4 +45,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
