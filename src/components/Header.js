@@ -12,7 +12,7 @@ const Header = ({ localWeatherReducer }) => {
                     <p className="forecast-current">
                         {Object.keys(localWeatherReducer).length > 0
                             ? `Current forecast for ${ localWeatherReducer.name }
-                                  Temp: ${ localWeatherReducer.main.temp }
+                                  Temp: ${ Math.round(localWeatherReducer.main.temp) }
                                   Condition: ${ localWeatherReducer.weather[0].main }`
                             : `Fetching Local Weather ...`}
                     </p>
