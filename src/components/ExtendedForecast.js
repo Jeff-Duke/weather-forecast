@@ -1,7 +1,6 @@
 import React from 'react';
 
 const ExtendedForecast = ({ExtendedForecast}) => {
-  console.log(ExtendedForecast)
     return (
       <section className="extended-container">
           {Object.keys(ExtendedForecast).length > 0 ?
