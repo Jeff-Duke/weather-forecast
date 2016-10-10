@@ -7,19 +7,7 @@ import {
     fetchLocalWeather
 } from '../actions/index';
 
-import localWeather from '../actions/data/weather';
-
-const mapStateToProps = (state) => {
-    if (state.localWeatherReducer.length > 0) {
-        return {
-            localWeather: state.localWeatherReducer[state.localWeatherReducer.length - 1].localWeather
-        };
-    } else {
-        return {
-            localWeather: localWeather
-        };
-    }
-};
+const mapStateToProps = (state) => ({ localWeatherReducer: state.localWeatherReducer});
 
 const mapDispatchToProps = (dispatch) => {
     return {
