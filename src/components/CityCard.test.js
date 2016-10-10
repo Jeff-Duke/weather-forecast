@@ -3,11 +3,10 @@ import { shallow, mount } from 'enzyme';
 import CityCard from './CityCard';
 
 describe('CityCard component', () => {
-  xit('renders the name of the city in <h1> tags', () => {
+  it('renders the name of the city in <h1> tags', () => {
     const wrapper = shallow( <CityCard /> );
-    const title = <h1>City Name</h1>;
 
-    expect(wrapper.contains(title)).toEqual(true);
+    expect(wrapper.contains('City Name')).toEqual(true);
   });
 
   it('should have a Link to route to the extended forecast', () => {
