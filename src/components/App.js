@@ -2,13 +2,11 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchCurrentWeatherByGPS } from '../actions/index';
-// import { Router, IndexRoute, Route, browserHistory, Link } from 'react-router';
-// import { fetchWeatherByZip } from '../actions/index';
 
 import HeaderContainer from '../containers/HeaderContainer';
 
 const mapStateToProps = state => {
-  return {};
+  return state;
 };
 
 const mapDispatchToProps = (dispatch) => {
