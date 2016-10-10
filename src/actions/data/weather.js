@@ -11,7 +11,7 @@ const localWeather = {
     }],
     "base": "stations",
     "main": {
-        "temp": 55,
+        "temp": 53,
         "pressure": 821.17,
         "humidity": 32,
         "temp_min": 286.437,

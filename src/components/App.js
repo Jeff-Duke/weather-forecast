@@ -1,10 +1,19 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import { fetchLocalWeather } from '../actions/index';
+import { bindActionCreators } from 'redux';
+import { fetchCurrentWeatherByGPS } from '../actions/index';
 // import { Router, IndexRoute, Route, browserHistory, Link } from 'react-router';
 // import { fetchWeatherByZip } from '../actions/index';
 
 import HeaderContainer from '../containers/HeaderContainer';
+
+const mapStateToProps = state => {
+  return {};
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({fetchCurrentWeatherByGPS}, dispatch);
+};
 
 class App extends Component {
 
@@ -13,8 +22,8 @@ class App extends Component {
             console.error('geolocation is not supported by your browser');
             return;
         }
-        navigator.geolocation.getCurrentPosition(function(position) {
-            console.log(position);
+        navigator.geolocation.getCurrentPosition((position) => {
+            this.props.fetchCurrentWeatherByGPS(position);
         });
     }
 
@@ -32,4 +41,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
