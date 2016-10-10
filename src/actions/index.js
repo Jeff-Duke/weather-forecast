@@ -19,7 +19,7 @@ export const receiveCurrentWeatherByGPS = (json) => {
 export const receiveCurrentWeatherByZip = json => {
     return {
         type: 'CURRENT_LOCAL_WEATHER_ZIP',
-        json
+        currentWeatherByZip: json
     };
 };
 

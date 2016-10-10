@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
-import CityCard from './CityCard';
+import PinnedCity from '../containers/PinnedCityContainer';
 import PinCard from './PinCard';
 
 
@@ -10,8 +10,8 @@ class Home extends Component {
     return (
       <div>
       <section className="pinned-cities">
-        <CityCard />
-        <CityCard />
+        <PinnedCity />
+        <PinnedCity />
         <PinCard />
       </section>
       <Link

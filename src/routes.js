@@ -3,7 +3,7 @@ import React from 'react';
 import { Router, Route, IndexRoute } from 'react-router';
 import Home from './components/Home';
 import Settings from './components/Settings';
-import ExtendedForecast from './containers/ExtendedForecast';
+import ExtendedForecast from './containers/ExtendedForecastContainer';
 
 import App from './components/App';
 
