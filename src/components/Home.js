@@ -10,6 +10,8 @@ class Home extends Component {
     return (
       <div>
       <section className="pinned-cities">
+        {/* // map through pinnedCities [zipCodes]
+        // get length of this array */}
         <PinnedCity />
         <PinnedCity />
         <PinCard />
