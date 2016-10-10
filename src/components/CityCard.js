@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const CityCard = ({pinnedCurrentForecast}) => {
-  console.log(pinnedCurrentForecast);
     return (
       <section className="city-card">
         {Object.keys(pinnedCurrentForecast).length > 0 ?
