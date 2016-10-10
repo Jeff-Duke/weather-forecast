@@ -17,7 +17,6 @@ export const receiveCurrentWeatherByGPS = (json) => {
 };
 
 export const receiveCurrentWeatherByZip = json => {
-    console.log('receiveCurrentWeatherByZip called', json);
     return {
         type: 'CURRENT_LOCAL_WEATHER_ZIP',
         json
@@ -25,11 +24,9 @@ export const receiveCurrentWeatherByZip = json => {
 };
 
 export const fetchCurrentWeatherByGPS = (position) => {
-    return (dispatch) => {
-        let weatherURLbyGPS = `http://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial&appid=${apiKey}`;
-        console.log('weatherbygps is about to dispatch');
-        console.log('weatherbygps called');
+    let weatherURLbyGPS = `http://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial&appid=${apiKey}`;
 
+    return (dispatch) => {
         return fetch(weatherURLbyGPS)
             .then(response => response.json())
             .then(jsonResponse => dispatch(receiveCurrentWeatherByGPS(jsonResponse)));
@@ -38,7 +35,10 @@ export const fetchCurrentWeatherByGPS = (position) => {
 
 export const fetchCurrentWeatherByZip = (zipcode) => {
     let weatherURLbyZip = `http://api.openweathermap.org/data/2.5/weather?zip=${zipcode},us&units=imperial&appid=${apiKey}`;
-    return dispatch => fetch(weatherURLbyZip)
-        .then(response => response.json())
-        .then(jsonResponse => dispatch(receiveCurrentWeatherByZip(jsonResponse)));
+
+    return dispatch => {
+        return fetch(weatherURLbyZip)
+            .then(response => response.json())
+            .then(jsonResponse => dispatch(receiveCurrentWeatherByZip(jsonResponse)));
+    };
 };
