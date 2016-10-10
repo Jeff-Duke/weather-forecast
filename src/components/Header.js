@@ -4,8 +4,8 @@ import { Link } from 'react-router';
 const Header = ({ onLoadWeather, localWeather }) => {
   let localTemp = localWeather.main.temp || 22;
   return (
-    <header className="header">
-      <Link to="/">
+    <header>
+      <Link to="/" className="header">
         <h1 className="main-title">Weather Tracker</h1>
       </Link>
       <section className="header-stripe">
