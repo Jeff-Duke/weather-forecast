@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { fetchCityInfoByZip } from '../actions';
 import Settings from '../components/Settings';
 
-const mapStateToProps = (state) => ({ pinnedCitiesArray: state.pinnedCityReducer.pinnedCities });
+const mapStateToProps = (state) => ({ pinnedCities: state.pinnedCityReducer });
 
 const mapDispatchToProps = (dispatch) => {
   return {
