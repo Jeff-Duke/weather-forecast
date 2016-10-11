@@ -1,8 +1,8 @@
 const pinnedCityReducer = (state = [], action) => {
   switch (action.type) {
 
-    case 'CITY_INFO_ZIP':
-      return state.concat(action.cityInfo);
+      case 'PINNNED_CITY_CURRENT_WEATHER':
+        return state.concat(action.payload);
 
     default:
       return state;

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Router, Route, IndexRoute } from 'react-router';
-import Home from './containers/dashboard';
+import Home from './containers/Dashboard';
 import SettingsContainer from './containers/SettingsContainer';
 import ExtendedForecastContainer from './containers/ExtendedForecastContainer';
 

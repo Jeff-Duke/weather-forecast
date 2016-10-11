@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchCityInfoByZip } from '../actions';
+import { fetchPinnedCityInfo } from '../actions';
 import Settings from '../components/Settings';
 
 const mapStateToProps = (state) => ({ pinnedCities: state.pinnedCityReducer });
@@ -7,7 +7,7 @@ const mapStateToProps = (state) => ({ pinnedCities: state.pinnedCityReducer });
 const mapDispatchToProps = (dispatch) => {
   return {
     onSubmit: (zipcode) => {
-      dispatch(fetchCityInfoByZip(zipcode));
+      dispatch(fetchPinnedCityInfo(zipcode));
     }
   };
 };
