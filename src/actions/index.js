@@ -2,12 +2,6 @@ import fetch from 'isomorphic-fetch';
 
 const apiKey = 'cbc43ed2ea5ef4a7aa9e8cf85994a583';
 
-export const fetchLocalWeather = (localWeather) => {
-    return {
-        type: 'LOCAL_WEATHER',
-        localWeather
-    };
-};
 
 export const receiveCurrentWeatherByGPS = (json) => {
     return {
@@ -27,6 +21,23 @@ export const receiveCurrentExtendedForecast = json => {
     return {
         type: 'CURRENT_EXTENDED_FORECAST',
         extendedForecast: json
+    };
+};
+
+export const receiveCityInfoByZip = (json, zipcode) => {
+    return {
+        type: 'CITY_INFO_ZIP',
+        cityInfo: { json, zipcode }
+    };
+};
+
+export const fetchCityInfoByZip = (zipcode) => {
+    let zipURL = `http://ZiptasticAPI.com/${zipcode}`;
+
+    return (dispatch) => {
+        return fetch(zipURL)
+            .then(response => response.json())
+            .then(jsonResponse => dispatch(receiveCityInfoByZip(jsonResponse, zipcode)));
     };
 };
 

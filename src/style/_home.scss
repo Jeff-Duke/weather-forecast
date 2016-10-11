@@ -21,15 +21,30 @@
   text-align: center;
 }
 
+.city-list {
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.city-li {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
 .pinned-forecast-extended {
   color: black;
   text-decoration: none;
-  margin: auto;
+  text-align: center;
   margin-top: 20px;
   &:hover {
    font-weight: 700;
   }
+}
 
+.pinned-link {
+  color: black;
+  text-decoration: none;
 }
 
 .pin-card {
