@@ -28,7 +28,6 @@ class App extends Component {
 
     componentDidMount() {
         this.findLocalCoordinates();
-        this.props.fetchCurrentWeatherByZip(80021); //map through array of zips, plug in 
     }
 
     render() {

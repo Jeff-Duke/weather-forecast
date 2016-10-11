@@ -9,19 +9,12 @@ const Home = ({pinnedCityList}) => {
     return (
       <div>
       <section className="pinned-cities">
-        {/* // map through pinnedCitiesArray [zipCodes]
-        // get length of this array
-        {pinnedCitiesArray.map(city => {
-          return <PinnedCity />
-        })}
-
-        // {Object.keys(pinnedCityReducer).length > 0 ?
-              <PinnedCity {zipcode} />
+        {pinnedCityList.length > 0 ?
+          pinnedCityList.map(pinnedCity =>
+            <PinnedCity
+              key={Date.now()}
+              zipcode={pinnedCity.zipcode} />)
               : <PinCard />}
-        */}
-        <PinnedCity />
-        <PinnedCity />
-        <PinCard />
       </section>
       <Link
         to="/Settings"
