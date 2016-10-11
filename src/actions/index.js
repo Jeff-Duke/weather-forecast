@@ -31,16 +31,6 @@ export const receiveCityInfoByZip = (json, zipcode) => {
     };
 };
 
-export const fetchCityInfoByZip = (zipcode) => {
-    let zipURL = `http://ZiptasticAPI.com/${zipcode}`;
-
-    return (dispatch) => {
-        return fetch(zipURL)
-            .then(response => response.json())
-            .then(jsonResponse => dispatch(receiveCityInfoByZip(jsonResponse, zipcode)));
-    };
-};
-
 export const fetchCurrentWeatherByGPS = (position) => {
     let weatherURLbyGPS = `http://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial&appid=${apiKey}`;
 
@@ -68,5 +58,34 @@ export const fetchLocalExtendedForecast = (position) => {
         return fetch(weatherURLextendedForecast)
             .then(response => response.json())
             .then(jsonResponse => dispatch(receiveCurrentExtendedForecast(jsonResponse)));
+    };
+};
+
+export const fetchPinnedCityInfo = (zipcode) => {
+    let zipURL = `http://ZiptasticAPI.com/${zipcode}`;
+
+    return (dispatch) => {
+        return fetch(zipURL)
+            .then(response => response.json())
+            .then(cityInfo => dispatch(fetchPinnedCityWeather(cityInfo, zipcode)));
+    };
+};
+
+export const fetchPinnedCityWeather = (cityInfo, zipcode) => {
+    let weatherURLbyZip = `http://api.openweathermap.org/data/2.5/weather?zip=${zipcode},us&units=imperial&appid=${apiKey}`;
+
+    return dispatch => {
+        return fetch(weatherURLbyZip)
+            .then(response => response.json())
+            .then(pinnedCityWeather => dispatch(receiveCurrentPinnedCityWeather(pinnedCityWeather, cityInfo, zipcode)));
+    };
+};
+
+export const receiveCurrentPinnedCityWeather = (pinnedCityWeather, cityInfo, zipcode) => {
+    let fullCityInfo = Object.assign(cityInfo, { zipcode });
+    let payload = Object.assign({}, pinnedCityWeather, fullCityInfo);
+    return {
+        type: 'PINNNED_CITY_CURRENT_WEATHER',
+        payload
     };
 };
