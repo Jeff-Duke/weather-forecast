@@ -1,20 +1,37 @@
-import React, { Component } from 'react';
-import AddCity from './AddCity';
+import React from 'react';
 
-class Settings extends Component {
-  render() {
+const Settings = ({ pinnedCities, onSubmit }) => {
+  let input;
     return (
       <section className="settings-menu">
         <h1 className="settings-title">Pinned Cities:</h1>
         <ul className="settings-city">
-          <li className="settings-li"><span className="redX">&#88;</span> City Name</li>
-          <li className="settings-li"><span className="redX">&#88;</span> City Name</li>
-          <li className="settings-li"><span className="redX">&#88;</span> City Name</li>
+          {pinnedCities ?
+              pinnedCities.map(city => <li key={ Math.random() }>{city.json.city}</li>)
+            : <li>Enter a zip code below</li>}
         </ul>
-        <AddCity />
+        <form
+          className="add-city-container"
+          onSubmit={ (e) => {
+            e.preventDefault();
+            onSubmit(input.value);
+            input.value=('');
+          }}
+        >
+          <input
+            ref={ node => { input = node }}
+            type="number"
+            className="add-zip-field"
+            placeholder="Zip Code" />
+          <button
+            className="add-city-button">
+            Pin New City
+          </button>
+        </form>
       </section>
     )
   }
-}
+
+
 
 export default Settings;
