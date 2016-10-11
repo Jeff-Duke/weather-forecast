@@ -15,8 +15,8 @@ const CityCard = ({pinnedCurrentForecast}) => {
         </article>
         : <p>Fetching pinned city forecast ...</p>}
         <article className="pinned-forecast-extended">
-          <Link to="/ExtendedForecast" // /{zip}
-          // route to extended forecast for particular zipcode
+          <Link to="/ExtendedForecast"
+          // add route to extended forecast for particular zipcode
             className="pinned-link">
             View Extended Forecast &#10163;
           </Link>

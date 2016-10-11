@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router';
 
 import PinnedCity from '../containers/PinnedCityContainer';
 import PinCard from './PinCard';
 
 
-class Home extends Component {
-  render() {
+const Home = ({pinnedCityList}) => {
     return (
       <div>
       <section className="pinned-cities">
@@ -32,6 +31,5 @@ class Home extends Component {
     </div>
     )
   }
-}
 
 export default Home;

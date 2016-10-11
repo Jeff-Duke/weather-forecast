@@ -1,8 +1,8 @@
-const pinnedCityReducer = (state = {}, action, pinnedCities=[]) => {
+const pinnedCityReducer = (state = [], action) => {
   switch (action.type) {
 
     case 'CITY_INFO_ZIP':
-      return Object.assign({}, state, pinnedCities.concat(action.cityInfo));
+      return state.concat(action.cityInfo);
 
     default:
       return state;

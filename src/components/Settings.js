@@ -1,16 +1,15 @@
 import React from 'react';
 
-const Settings = ({  onSubmit }) => {
+const Settings = ({ pinnedCities, onSubmit }) => {
   let input;
-// console.log(pinnedCitiesArray);
     return (
       <section className="settings-menu">
         <h1 className="settings-title">Pinned Cities:</h1>
-        {/* <ul className="settings-city">
-          {pinnedCitiesArray.map(city => {
-            return <li className="settings-li">{city.name}</li>
-          })}
-        </ul> */}
+        <ul className="settings-city">
+          {pinnedCities ?
+              pinnedCities.map(city => <li key={ Math.random() }>{city.json.city}</li>)
+            : <li>Enter a zip code below</li>}
+        </ul>
         <form
           className="add-city-container"
           onSubmit={ (e) => {
@@ -32,5 +31,7 @@ const Settings = ({  onSubmit }) => {
       </section>
     )
   }
+
+
 
 export default Settings;
