@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router';
 
 import PinnedCity from '../containers/PinnedCityContainer';
@@ -9,7 +9,19 @@ const Home = ({pinnedCityList}) => {
     return (
       <div>
       <section className="pinned-cities">
-        
+        {/* // map through pinnedCitiesArray [zipCodes]
+        // get length of this array
+        {pinnedCitiesArray.map(city => {
+          return <PinnedCity />
+        })}
+
+        // {Object.keys(pinnedCityReducer).length > 0 ?
+              <PinnedCity {zipcode} />
+              : <PinCard />}
+        */}
+        <PinnedCity />
+        <PinnedCity />
+        <PinCard />
       </section>
       <Link
         to="/Settings"
@@ -19,6 +31,5 @@ const Home = ({pinnedCityList}) => {
     </div>
     )
   }
-}
 
 export default Home;
