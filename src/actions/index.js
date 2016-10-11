@@ -37,8 +37,7 @@ export const fetchLocalExtendedForecast = (position) => {
 };
 
 export const receiveCurrentPinnedCityWeather = (pinnedCityWeather, cityInfo, zipcode) => {
-    let fullCityInfo = Object.assign(cityInfo, { zipcode });
-    let payload = Object.assign({}, pinnedCityWeather, fullCityInfo);
+    let payload = Object.assign(cityInfo, { zipcode }, pinnedCityWeather);
     return {
         type: 'PINNNED_CITY_CURRENT_WEATHER',
         payload

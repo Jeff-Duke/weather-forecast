@@ -10,7 +10,7 @@ const Header = ({localWeatherReducer}) => {
             <section className="header-stripe">
                 <section className="header-text-container">
                   <article className="forecast-current">
-                      {Object.keys(localWeatherReducer).length > 0
+                      {Object.keys(localWeatherReducer).length
                           ? <p>Current forecast for {localWeatherReducer.name}: {localWeatherReducer.weather[0].main} {Math.round(localWeatherReducer.main.temp)}&#8457;</p>
                           : <p>Fetching Local Weather ...</p>}
                   </article>

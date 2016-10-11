@@ -4,12 +4,11 @@ import { Link } from 'react-router';
 import CityCard from '../components/CityCard';
 import PinCard from './PinCard';
 
-
 const Home = ({pinnedCityList}) => {
     return (
       <div>
       <section className="pinned-cities">
-        {pinnedCityList.length > 0 ?
+        {pinnedCityList.length ?
           pinnedCityList.map(pinnedCity =>
             <CityCard
               key={pinnedCity.id}
@@ -17,8 +16,9 @@ const Home = ({pinnedCityList}) => {
               name={pinnedCity.city}
               temp={Math.round(pinnedCity.main.temp)}
               condition={pinnedCity.weather[0].main}
-              />) 
+              />)
               : <PinCard />}
+            <PinCard />
       </section>
       <Link
         to="/Settings"
