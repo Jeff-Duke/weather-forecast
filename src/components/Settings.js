@@ -7,7 +7,7 @@ const Settings = ({ pinnedCities, onSubmit }) => {
         <h1 className="settings-title">Pinned Cities:</h1>
         <ul className="settings-city">
           {pinnedCities ?
-              pinnedCities.map(city => <li key={city.zipcode}>{city.json.city}</li>)
+              pinnedCities.map(city => <li key={ Math.random() }>{city.json.city}</li>)
             : <p>Enter a zip code below</p>}
         </ul>
         <form
