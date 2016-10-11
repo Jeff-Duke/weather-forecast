@@ -1,25 +1,22 @@
 import React from 'react';
-import { bindActionCreators } from 'redux';
-
-// import AddCity from './AddCity';
 
 const Settings = ({ pinnedCitiesArray, onSubmit }) => {
   let input;
-console.log(onSubmit, pinnedCitiesArray);
+console.log(pinnedCitiesArray);
     return (
       <section className="settings-menu">
         <h1 className="settings-title">Pinned Cities:</h1>
         <ul className="settings-city">
-          <li className="settings-li">City Name</li>
-          <li className="settings-li">City Name</li>
-          <li className="settings-li">City Name</li>
+          {pinnedCitiesArray.map(city => {
+            return <li className="settings-li">{city.name}</li>
+          })}
         </ul>
         <form
           className="add-city-container"
           onSubmit={ (e) => {
             e.preventDefault();
-            console.log(input.value);
             onSubmit(input.value);
+            input.value=('');
           }}
         >
           <input
