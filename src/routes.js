@@ -13,6 +13,7 @@ const Routes = (props) => (
       <IndexRoute component={Home} />
       <Route path="/Settings" component={SettingsContainer} />
       <Route path="/ExtendedForecast" component={ExtendedForecastContainer} />
+      <Route path="/ExtendedForecast" component={ExtendedForecastContainer} />
     </Route>
   </Router>
 );

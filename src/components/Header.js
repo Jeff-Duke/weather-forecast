@@ -13,7 +13,7 @@ const Header = ({localWeatherReducer}) => {
                       {Object.keys(localWeatherReducer).length > 0
                           ? <ul>
                               <li>Current forecast for {localWeatherReducer.name}</li>
-                              <li>Temp: {Math.round(localWeatherReducer.main.temp)}</li>
+                              <li>Temp: {Math.round(localWeatherReducer.main.temp)}&#8457;</li>
                               <li>Condition: {localWeatherReducer.weather[0].main}</li>
                           </ul>
 
