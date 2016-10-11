@@ -16,8 +16,7 @@ const Home = ({pinnedCityList}) => {
               name={pinnedCity.city}
               temp={Math.round(pinnedCity.main.temp)}
               condition={pinnedCity.weather[0].main}
-              />
-            )
+              />)
               : <PinCard />}
             <PinCard />
       </section>

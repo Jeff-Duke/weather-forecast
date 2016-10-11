@@ -7,7 +7,7 @@ describe('Header component', () => {
   it('should have a main title render on every page', () => {
     const wrapper = shallow(
       <Header
-        localWeather={
+        localWeatherReducer={
           localWeatherData
         }
       /> );
@@ -19,7 +19,7 @@ describe('Header component', () => {
     const wrapper = shallow(
       <Header
         name="Denver"
-        localWeather={
+        localWeatherReducer={
           localWeatherData}
         />);
 

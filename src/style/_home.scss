@@ -17,7 +17,9 @@
 }
 
 .city-title {
+  font-size: 2em;
   margin-top: 20px;
+  margin-bottom: 20px;
   text-align: center;
 }
 
@@ -37,14 +39,16 @@
   text-decoration: none;
   text-align: center;
   margin-top: 20px;
-  &:hover {
-   font-weight: 700;
-  }
+
 }
 
 .pinned-link {
   color: black;
+  margin-top: 20px;
   text-decoration: none;
+  &:hover {
+   font-weight: 700;
+  }
 }
 
 .pin-card {
