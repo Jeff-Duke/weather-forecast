@@ -7,9 +7,10 @@ export default class CityCard extends Component {
             <section className="city-card">
                 <article className="pinned-forecast-extended">
                     <h1>{this.props.name}</h1>
-                    <p>Current temperature: {this.props.temp}</p>
-                    <p>Current outlook: {this.props.condition}</p>
                     <br/>
+                    <p>Current temperature: {this.props.temp}</p>
+                    <br/>
+                    <p>Current outlook: {this.props.condition}</p>
                     <br/>
                     <Link to="/ExtendedForecast/" // add route to extended forecast for particular zipcode
                         className="pinned-link">
