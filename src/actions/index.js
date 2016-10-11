@@ -9,7 +9,7 @@ export const receiveCurrentWeatherByGPS = (json) => {
     };
 };
 
-export const receiveCurrentExtendedForecast = json => {
+export const receiveCurrentExtendedForecast = (json) => {
     return {
         type: 'CURRENT_EXTENDED_FORECAST',
         extendedForecast: json
