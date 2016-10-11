@@ -12,11 +12,17 @@ const ExtendedForecast = ({ExtendedForecast}) => {
 
           {Object.keys(ExtendedForecast).length > 0 ?
             <div>
-            <h1>{ExtendedForecast.city.name}</h1>
+            <h1>5 DAY 3 HOUR FORECAST</h1>
+            <h1>City: {ExtendedForecast.city.name}</h1>
+            <br/>
         <ul>
         {fiveDayForecasts.length > 0 ?
-            fiveDayForecasts.map(forecast => <li key={Math.random()}>
-            Date: {forecast.date} Min temp: {forecast.min_temp} Max temp: {forecast.max_temp} Humidity: {forecast.humidity}
+            fiveDayForecasts.map(forecast => <li className="extended-list" key={Math.random()}>
+            Date: {forecast.date}
+            <br/>
+            Min temp: {forecast.min_temp}{" "}
+            Max temp: {forecast.max_temp}{" "}
+            Humidity: {forecast.humidity}
            </li>)
           : f => f
         }
