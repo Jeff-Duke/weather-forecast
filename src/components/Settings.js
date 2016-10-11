@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const Settings = ({ pinnedCities, onSubmit }) => {
   let input;
@@ -27,6 +28,9 @@ const Settings = ({ pinnedCities, onSubmit }) => {
             className="add-city-button">
             Pin New City
           </button>
+          <Link to="/" className="header">
+              <h1 className="main-title">VIEW PINS</h1>
+          </Link>
         </form>
       </section>
     )
