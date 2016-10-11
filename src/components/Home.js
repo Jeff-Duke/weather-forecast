@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-import PinnedCity from '../containers/PinnedCityContainer';
+import CityCard from '../components/CityCard';
 import PinCard from './PinCard';
 
 
@@ -11,9 +11,13 @@ const Home = ({pinnedCityList}) => {
       <section className="pinned-cities">
         {pinnedCityList.length > 0 ?
           pinnedCityList.map(pinnedCity =>
-            <PinnedCity
-              key={Date.now()}
-              zipcode={pinnedCity.zipcode} />)
+            <CityCard
+              key={pinnedCity.id}
+              zipcode={pinnedCity.zipcode}
+              name={pinnedCity.city}
+              temp={Math.round(pinnedCity.main.temp)}
+              condition={pinnedCity.weather[0].main}
+              />)
               : <PinCard />}
       </section>
       <Link

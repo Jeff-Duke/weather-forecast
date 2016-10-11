@@ -2,7 +2,6 @@ import React from 'react';
 const _ = require('lodash')
 
 const ExtendedForecast = ({ExtendedForecast}) => {
-  console.log(ExtendedForecast)
     var initialData = _.map(ExtendedForecast, (value, key) => _.extend(value, { key }))
     var fiveDay = _.map(initialData[4], (value, key) => _.extend(value, { key }))
     var fiveDayForecasts = fiveDay.map((item) => {
