@@ -11,8 +11,9 @@ export default class CityCard extends Component {
                     <p>Current outlook: {this.props.condition}</p>
                     <br/>
                     <br/>
-                    <Link to="/ExtendedForecast/" // add route to extended forecast for particular zipcode
-                        className="pinned-link">
+                    <Link to={'/PinnedCityExtended/' + this.props.zipcode}
+                        className="pinned-link"
+                        >
                         View Extended Forecast &#10163;
                     </Link>
                 </article>

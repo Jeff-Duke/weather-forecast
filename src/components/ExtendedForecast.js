@@ -1,7 +1,7 @@
 import React from 'react';
 const _ = require('lodash')
 
-const ExtendedForecast = ({ExtendedForecast}) => {
+const ExtendedForecast = ({ExtendedForecast, zipCode}) => {
     var initialData = _.map(ExtendedForecast, (value, key) => _.extend(value, { key }))
     var fiveDay = _.map(initialData[4], (value, key) => _.extend(value, { key }))
     var fiveDayForecasts = fiveDay.map((item) => {
@@ -10,13 +10,13 @@ const ExtendedForecast = ({ExtendedForecast}) => {
     return (
       <section className="extended-container">
 
-          {Object.keys(ExtendedForecast).length > 0 ?
+          {Object.keys(ExtendedForecast).length ?
             <div>
             <h1>5 DAY 3 HOUR FORECAST</h1>
             <h1>City: {ExtendedForecast.city.name}</h1>
             <br/>
         <ul>
-        {fiveDayForecasts.length > 0 ?
+        {fiveDayForecasts.length ?
             fiveDayForecasts.map(forecast => <li className="extended-list" key={Math.random()}>
             Date: {forecast.date}
             <br/>
