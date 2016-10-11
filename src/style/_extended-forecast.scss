@@ -1,8 +1,13 @@
 .extended-container {
   background-color: #D5E9F3;
   border: 1px solid #3A7A99;
-  height: 70vh;
+  height: 80vh;
   width: 80%;
   margin: auto;
   margin-top: 20px;
+  overflow: scroll;
+}
+
+.extended-list {
+  margin-bottom: 20px;
 }
