@@ -8,7 +8,7 @@ const Settings = ({ pinnedCities, onSubmit }) => {
         <ul className="settings-city">
           {pinnedCities ?
               pinnedCities.map(city => <li key={ Math.random() }>{city.json.city}</li>)
-            : <p>Enter a zip code below</p>}
+            : <li>Enter a zip code below</li>}
         </ul>
         <form
           className="add-city-container"

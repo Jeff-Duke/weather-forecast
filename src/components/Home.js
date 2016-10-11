@@ -5,16 +5,11 @@ import PinnedCity from '../containers/PinnedCityContainer';
 import PinCard from './PinCard';
 
 
-class Home extends Component {
-  render() {
+const Home = ({pinnedCityList}) => {
     return (
       <div>
       <section className="pinned-cities">
-        {/* // map through pinnedCities [zipCodes]
-        // get length of this array */}
-        <PinnedCity />
-        <PinnedCity />
-        <PinCard />
+        
       </section>
       <Link
         to="/Settings"
