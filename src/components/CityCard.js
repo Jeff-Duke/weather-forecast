@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const CityCard = ({pinnedCurrentForecast}) => {
-  console.log(pinnedCurrentForecast);
-  console.log(this.props.zipcode);
+  // console.log(pinnedCurrentForecast);
+  // console.log(this.props.zipcode);
   // this.props.fetchCurrentWeatherByZip(80021);
-  
+
     return (
       <section className="city-card">
         {Object.keys(pinnedCurrentForecast).length > 0 ?

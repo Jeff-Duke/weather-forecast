@@ -3,8 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
+    "babel-jest": "^16.0.0",
     "enzyme": "^2.4.1",
     "isomorphic-fetch": "^2.2.1",
+    "jest": "^16.0.1",
     "react-addons-test-utils": "^15.3.2",
     "react-router-redux": "^4.0.6",
     "react-scripts": "^0.6.0",

@@ -4,8 +4,8 @@ const extendedForecastReducer = (state = {}, action) => {
     case 'CURRENT_EXTENDED_FORECAST':
       return Object.assign({}, state, action.extendedForecast);
 
-      default:
-        return state;
+    default:
+      return state;
   }
 };
 
