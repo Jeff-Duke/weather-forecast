@@ -17,10 +17,7 @@ const ExtendedForecast = ({ExtendedForecast}) => {
         <ul>
         {fiveDayForecasts.length > 0 ?
             fiveDayForecasts.map(forecast => <li key={Math.random()}>
-            Date: {forecast.date}
-            Min_temp: {forecast.min_temp}
-            Max_temp: {forecast.max_temp}
-            Humidity: {forecast.humidity}
+            Date: {forecast.date} Min temp: {forecast.min_temp} Max temp: {forecast.max_temp} Humidity: {forecast.humidity}
            </li>)
           : f => f
         }
