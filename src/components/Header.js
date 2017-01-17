@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router';
 
 const Header = ({localWeatherReducer}) => {
+
     return (
         <header className="header">
             <Link to="/" className="header">
@@ -11,7 +12,7 @@ const Header = ({localWeatherReducer}) => {
                 <section className="header-text-container">
                   <article className="forecast-current">
                       {Object.keys(localWeatherReducer).length
-                          ? <p>Current forecast for {localWeatherReducer.name}: {localWeatherReducer.weather[0].main} {Math.round(localWeatherReducer.main.temp)}&#8457;</p>
+                          ? <p>Current forecast for {localWeatherReducer.display_location.full}: {localWeatherReducer.weather} {Math.round(localWeatherReducer.temp_f)}&#8457;</p>
                           : <p>Fetching Local Weather ...</p>}
                   </article>
                     <Link to="/ExtendedForecast" className="forecast-extended">

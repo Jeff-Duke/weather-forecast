@@ -13,9 +13,9 @@ const Home = ({pinnedCityList}) => {
             <CityCard
               key={pinnedCity.id}
               zipcode={pinnedCity.zipcode}
-              name={pinnedCity.city}
-              temp={Math.round(pinnedCity.main.temp)}
-              condition={pinnedCity.weather[0].main}
+              name={pinnedCity.current_observation.display_location.full}
+              temp={Math.round(pinnedCity.current_observation.temp_f)}
+              condition={pinnedCity.current_observation.weather}
               />)
               : <PinCard />}
             <PinCard />

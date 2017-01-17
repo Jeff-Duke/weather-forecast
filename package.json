@@ -35,5 +35,5 @@
   "eslintConfig": {
     "extends": "./node_modules/react-scripts/config/eslint.js"
   },
-  "homepage": "https://jeff-duke.github.io/weather-forecast/"
+  "homepage": "http://jeff-duke.github.io/weather-forecast/"
 }

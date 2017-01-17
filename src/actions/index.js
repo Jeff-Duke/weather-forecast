@@ -1,6 +1,7 @@
 import fetch from 'isomorphic-fetch';
 
-const apiKey = 'cbc43ed2ea5ef4a7aa9e8cf85994a583';
+const apiKey = '9b9ce697dc74009c';
+const weatherURL = `https://api.wunderground.com/api/${apiKey}`;
 
 export const receiveCurrentWeatherByGPS = (json) => {
     return {
@@ -17,8 +18,8 @@ export const receiveCurrentExtendedForecast = (json) => {
 };
 
 export const fetchCurrentWeatherByGPS = (position) => {
-    let weatherURLbyGPS = `http://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial&appid=${apiKey}`;
-
+    let weatherURLbyGPS = `${weatherURL}/conditions/q/${position.coords.latitude},${position.coords.longitude}.json`;
+    console.log(weatherURLbyGPS);
     return (dispatch) => {
         return fetch(weatherURLbyGPS)
             .then(response => response.json())
@@ -27,7 +28,7 @@ export const fetchCurrentWeatherByGPS = (position) => {
 };
 
 export const fetchLocalExtendedForecast = (position) => {
-    let weatherURLextendedForecast = `http://api.openweathermap.org/data/2.5/forecast?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial&appid=${apiKey}`;
+    let weatherURLextendedForecast = `${weatherURL}/forecast/q/${position.coords.latitude},${position.coords.longitude}.json`;
 
     return dispatch => {
         return fetch(weatherURLextendedForecast)
@@ -37,7 +38,7 @@ export const fetchLocalExtendedForecast = (position) => {
 };
 
 export const receiveCurrentPinnedCityWeather = (pinnedCityWeather, cityInfo, zipcode) => {
-    let payload = Object.assign(cityInfo, { zipcode }, pinnedCityWeather);
+    let payload = Object.assign(cityInfo, { zipcode, id: Date.now() }, pinnedCityWeather);
     return {
         type: 'PINNNED_CITY_CURRENT_WEATHER',
         payload
@@ -45,7 +46,7 @@ export const receiveCurrentPinnedCityWeather = (pinnedCityWeather, cityInfo, zip
 };
 
 export const fetchPinnedCityWeather = (cityInfo, zipcode) => {
-    let weatherURLbyZip = `http://api.openweathermap.org/data/2.5/weather?zip=${zipcode},us&units=imperial&appid=${apiKey}`;
+    let weatherURLbyZip = `${weatherURL}/forecast/q/${zipcode}.json`;;
 
     return dispatch => {
         return fetch(weatherURLbyZip)

@@ -3,10 +3,15 @@ const _ = require('lodash');
 import { Link } from 'react-router';
 
 const ExtendedForecast = ({ExtendedForecast, zipCode}) => {
-    var initialData = _.map(ExtendedForecast, (value, key) => _.extend(value, { key }));
-    var fiveDay = _.map(initialData[4], (value, key) => _.extend(value, { key }));
-    var fiveDayForecasts = fiveDay.map((item) => {
-      return {date: item.dt_txt, min_temp: item.main.temp_min, max_temp: item.main.temp_max, humidity: item.main.humidity};
+    let initialData = _.map(ExtendedForecast, (value, key) => _.extend(value, { key }));
+    let fiveDay = _.map(initialData[4], (value, key) => _.extend(value, { key }));
+    let fiveDayForecasts = fiveDay.map((item) => {
+      debugger;
+      return {
+        date: item.dt_txt, 
+        min_temp: item.main.temp_min, 
+        max_temp: item.main.temp_max, 
+        humidity: item.main.humidity};
     });
     return (
       <div>
