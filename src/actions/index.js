@@ -1,25 +1,36 @@
 import fetch from 'isomorphic-fetch';
 
-const apiKey = 'cbc43ed2ea5ef4a7aa9e8cf85994a583';
+const apiKey = '9b9ce697dc74009c';
+const weatherURL = `https://api.wunderground.com/api/${apiKey}`;
 
-export const receiveCurrentWeatherByGPS = (json) => {
+export const receiveCurrentWeatherByGPS = (weatherInfo) => {
     return {
         type: 'CURRENT_LOCAL_WEATHER_GPS',
-        currentLocalForecast: json
+        currentLocalForecast: weatherInfo
     };
 };
 
-export const receiveCurrentExtendedForecast = (json) => {
+export const receiveCurrentExtendedForecast = (geoLocation, weatherInfo) => {
+    let payload = Object.assign(geoLocation.location, weatherInfo.forecast.txt_forecast);
     return {
         type: 'CURRENT_EXTENDED_FORECAST',
-        extendedForecast: json
+        extendedForecast: payload
     };
 };
 
-export const fetchCurrentWeatherByGPS = (position) => {
-    let weatherURLbyGPS = `http://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial&appid=${apiKey}`;
+export const fetchMyLocation = (position, weatherInfo, method) => {
+    let geoLocationURL = `${weatherURL}/geolookup/q/${position.coords.latitude},${position.coords.longitude}.json`;
+    return dispatch => {
+        fetch(geoLocationURL)
+            .then(response => response.json())
+            .then(geoLocation => dispatch(method(geoLocation, weatherInfo)));
+    };
+}
 
-    return (dispatch) => {
+export const fetchCurrentWeatherByGPS = (position) => {
+    let weatherURLbyGPS = `${weatherURL}/conditions/q/${position.coords.latitude},${position.coords.longitude}.json`;
+
+    return dispatch => {
         return fetch(weatherURLbyGPS)
             .then(response => response.json())
             .then(jsonResponse => dispatch(receiveCurrentWeatherByGPS(jsonResponse)));
@@ -27,17 +38,17 @@ export const fetchCurrentWeatherByGPS = (position) => {
 };
 
 export const fetchLocalExtendedForecast = (position) => {
-    let weatherURLextendedForecast = `http://api.openweathermap.org/data/2.5/forecast?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial&appid=${apiKey}`;
+    let weatherURLExtendedForecast = `${weatherURL}/forecast/q/${position.coords.latitude},${position.coords.longitude}.json`;
 
     return dispatch => {
-        return fetch(weatherURLextendedForecast)
+        return fetch(weatherURLExtendedForecast)
             .then(response => response.json())
-            .then(jsonResponse => dispatch(receiveCurrentExtendedForecast(jsonResponse)));
+            .then(weatherInfo => dispatch(fetchMyLocation(position, weatherInfo, receiveCurrentExtendedForecast)));
     };
 };
 
 export const receiveCurrentPinnedCityWeather = (pinnedCityWeather, cityInfo, zipcode) => {
-    let payload = Object.assign(cityInfo, { zipcode }, pinnedCityWeather);
+    let payload = Object.assign(cityInfo, { zipcode, id: Date.now() }, pinnedCityWeather);
     return {
         type: 'PINNNED_CITY_CURRENT_WEATHER',
         payload
@@ -45,7 +56,7 @@ export const receiveCurrentPinnedCityWeather = (pinnedCityWeather, cityInfo, zip
 };
 
 export const fetchPinnedCityWeather = (cityInfo, zipcode) => {
-    let weatherURLbyZip = `http://api.openweathermap.org/data/2.5/weather?zip=${zipcode},us&units=imperial&appid=${apiKey}`;
+    let weatherURLbyZip = `${weatherURL}/forecast/q/${zipcode}.json`;;
 
     return dispatch => {
         return fetch(weatherURLbyZip)

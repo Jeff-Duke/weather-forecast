@@ -10,7 +10,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({fetchCurrentWeatherByGPS, fetchLocalExtendedForecast}, dispatch);
+  return bindActionCreators({fetchCurrentWeatherByGPS, fetchLocalExtendedForecast  }, dispatch);
 };
 
 class App extends Component {
@@ -41,3 +41,5 @@ class App extends Component {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+
