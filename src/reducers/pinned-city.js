@@ -3,7 +3,6 @@ const pinnedCityReducer = (state = [], action) => {
 
       case 'PINNNED_CITY_CURRENT_WEATHER':
         return state.concat(action.payload);
-
     default:
       return state;
   }

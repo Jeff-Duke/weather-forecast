@@ -8,6 +8,7 @@ export default class CityCard extends Component {
       <section className="city-card">
         <article className="pinned-forecast-extended">
           <h1 className="city-title">{this.props.name}</h1>
+          <img src={this.props.icon} alt="weather icon" />
           <ul className="city-list">
             <li className="city-li">Current temperature: {this.props.temp}</li>
             <li className="city-li">Current outlook: {this.props.condition}</li>
