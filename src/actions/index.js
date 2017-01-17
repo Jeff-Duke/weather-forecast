@@ -3,24 +3,34 @@ import fetch from 'isomorphic-fetch';
 const apiKey = '9b9ce697dc74009c';
 const weatherURL = `https://api.wunderground.com/api/${apiKey}`;
 
-export const receiveCurrentWeatherByGPS = (json) => {
+export const receiveCurrentWeatherByGPS = (weatherInfo) => {
     return {
         type: 'CURRENT_LOCAL_WEATHER_GPS',
-        currentLocalForecast: json
+        currentLocalForecast: weatherInfo
     };
 };
 
-export const receiveCurrentExtendedForecast = (json) => {
+export const receiveCurrentExtendedForecast = (geoLocation, weatherInfo) => {
+    let payload = Object.assign(geoLocation.location, weatherInfo.forecast.txt_forecast);
     return {
         type: 'CURRENT_EXTENDED_FORECAST',
-        extendedForecast: json
+        extendedForecast: payload
     };
 };
+
+export const fetchMyLocation = (position, weatherInfo, method) => {
+    let geoLocationURL = `${weatherURL}/geolookup/q/${position.coords.latitude},${position.coords.longitude}.json`;
+    return dispatch => {
+        fetch(geoLocationURL)
+            .then(response => response.json())
+            .then(geoLocation => dispatch(method(geoLocation, weatherInfo)));
+    };
+}
 
 export const fetchCurrentWeatherByGPS = (position) => {
     let weatherURLbyGPS = `${weatherURL}/conditions/q/${position.coords.latitude},${position.coords.longitude}.json`;
-    console.log(weatherURLbyGPS);
-    return (dispatch) => {
+
+    return dispatch => {
         return fetch(weatherURLbyGPS)
             .then(response => response.json())
             .then(jsonResponse => dispatch(receiveCurrentWeatherByGPS(jsonResponse)));
@@ -28,12 +38,12 @@ export const fetchCurrentWeatherByGPS = (position) => {
 };
 
 export const fetchLocalExtendedForecast = (position) => {
-    let weatherURLextendedForecast = `${weatherURL}/forecast/q/${position.coords.latitude},${position.coords.longitude}.json`;
+    let weatherURLExtendedForecast = `${weatherURL}/forecast/q/${position.coords.latitude},${position.coords.longitude}.json`;
 
     return dispatch => {
-        return fetch(weatherURLextendedForecast)
+        return fetch(weatherURLExtendedForecast)
             .then(response => response.json())
-            .then(jsonResponse => dispatch(receiveCurrentExtendedForecast(jsonResponse)));
+            .then(weatherInfo => dispatch(fetchMyLocation(position, weatherInfo, receiveCurrentExtendedForecast)));
     };
 };
 
@@ -64,3 +74,12 @@ export const fetchPinnedCityInfo = (zipcode) => {
             .then(cityInfo => dispatch(fetchPinnedCityWeather(cityInfo, zipcode)));
     };
 };
+
+//     firstThingAsync()  
+//   .then(function(result1) {
+//     return Promise.all([result1, secondThingAsync(result1)]); 
+//   })
+//   .then(function(results) {
+//     // do something with results array: results[0], results[1]
+//   })
+//   .catch(function(err){ /* ... */ });
