@@ -17,7 +17,7 @@ const ExtendedForecast = ({ExtendedForecast, zipCode}) => {
             <h1>City: {ExtendedForecast.city}</h1>
             <br/>
             <ul>
-            { ExtendedForecast.forecastday.map((day) => <li key={day.period}>{day.title} -- {day.fcttext}</li>)}
+            { ExtendedForecast.forecastday.map((day) => <li key={day.period}> <img src={day.icon_url} alt="weather icon" /> {day.title} -- {day.fcttext}</li>)}
             </ul>
             </div>
           : <p>Fetching Extended forecast...</p>}
