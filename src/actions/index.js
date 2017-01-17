@@ -74,12 +74,3 @@ export const fetchPinnedCityInfo = (zipcode) => {
             .then(cityInfo => dispatch(fetchPinnedCityWeather(cityInfo, zipcode)));
     };
 };
-
-//     firstThingAsync()  
-//   .then(function(result1) {
-//     return Promise.all([result1, secondThingAsync(result1)]); 
-//   })
-//   .then(function(results) {
-//     // do something with results array: results[0], results[1]
-//   })
-//   .catch(function(err){ /* ... */ });
