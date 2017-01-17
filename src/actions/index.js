@@ -56,7 +56,7 @@ export const receiveCurrentPinnedCityWeather = (pinnedCityWeather, cityInfo, zip
 };
 
 export const fetchPinnedCityWeather = (cityInfo, zipcode) => {
-    let weatherURLbyZip = `${weatherURL}/forecast/q/${zipcode}.json`;;
+    let weatherURLbyZip = `${weatherURL}/conditions/q/${zipcode}.json`;
 
     return dispatch => {
         return fetch(weatherURLbyZip)
