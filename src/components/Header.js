@@ -12,7 +12,8 @@ const Header = ({localWeatherReducer}) => {
                 <section className="header-text-container">
                   <article className="forecast-current">
                       {Object.keys(localWeatherReducer).length
-                          ? <p>Current forecast for {localWeatherReducer.display_location.full}: {localWeatherReducer.weather} {Math.round(localWeatherReducer.temp_f)}&#8457;</p>
+                          ? <p> <img src={localWeatherReducer.icon_url
+} alt="weather icon" /> Current forecast for {localWeatherReducer.display_location.full}:  {localWeatherReducer.weather} {Math.round(localWeatherReducer.temp_f)}&#8457;</p>
                           : <p>Fetching Local Weather ...</p>}
                   </article>
                     <Link to="/ExtendedForecast" className="forecast-extended">
