@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchPinnedCityWeather, fetchPinnedCityExtended } from '../actions';
+import { fetchPinnedCityCurrentWeather, fetchPinnedCityExtendedForecast } from '../actions';
 import Settings from '../components/Settings';
 
 const mapStateToProps = (state) => ({ pinnedCities: state.pinnedCityReducer });
@@ -7,8 +7,8 @@ const mapStateToProps = (state) => ({ pinnedCities: state.pinnedCityReducer });
 const mapDispatchToProps = (dispatch) => {
   return {
     onSubmit: (cityInfo, zipcode) => {
-      dispatch(fetchPinnedCityWeather(cityInfo, zipcode));
-      dispatch(fetchPinnedCityExtended(cityInfo, zipcode));
+      dispatch(fetchPinnedCityCurrentWeather(cityInfo, zipcode));
+      dispatch(fetchPinnedCityExtendedForecast(cityInfo, zipcode));
     }
   };
 };

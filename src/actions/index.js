@@ -39,51 +39,45 @@ export const fetchLocalExtendedForecast = (cityInfo) => {
         return fetch(extendedByZip)
             .then(response => response.json())
             .catch(err => console.log(err))
-            .then(weatherInfo => dispatch(receiveLocalExtendedForecast(cityInfo, weatherInfo)));
+            .then(weatherInfo => dispatch(
+                receiveLocalExtendedForecast(cityInfo, weatherInfo)));
     };
 };
 
-export const receivePinnedCityExtended = (weatherInfo, cityInfo, zipcode) => {
-    debugger;
-    let payload = Object.assign(weatherInfo, {
-        zipcode,
-        id: Date.now()
-    });
+export const receivePinnedCityExtendedForecast = (weatherInfo, cityInfo, zipcode) => {
+    let payload = Object.assign(cityInfo, weatherInfo.forecast, { zipcode, id: Date.now() });
     return {
         type: 'PINNED_CITY_EXTENDED_FORECAST',
         payload
     };
 };
 
-export const fetchPinnedCityExtended = (cityInfo, zipcode) => {
+export const fetchPinnedCityExtendedForecast = (cityInfo, zipcode) => {
     let weatherURLbyZip = `${weatherURL}/forecast/q/${zipcode}.json`;
-    debugger;
     return dispatch => {
         return fetch(weatherURLbyZip)
             .then(response => response.json())
             .catch(err => console.log('an error occurred', err))
-            .then(pinnedCityExtended => dispatch(receivePinnedCityExtended(pinnedCityExtended, cityInfo, zipcode)));
+            .then(weatherInfo => dispatch(
+                receivePinnedCityExtendedForecast(weatherInfo, cityInfo, zipcode)));
     };
 };
 
-export const receivePinnedCityWeather = (pinnedCityWeather, cityInfo, zipcode) => {
-    let payload = Object.assign(cityInfo, {
-        zipcode,
-        id: Date.now()
-    }, pinnedCityWeather);
+export const receivePinnedCityCurrentWeather = (pinnedCityWeather, cityInfo, zipcode) => {
+    let payload = Object.assign(cityInfo, { zipcode, id: Date.now() }, pinnedCityWeather);
     return {
         type: 'PINNNED_CITY_CURRENT_WEATHER',
         payload
     };
 };
 
-export const fetchPinnedCityWeather = (cityInfo, zipcode) => {
+export const fetchPinnedCityCurrentWeather = (cityInfo, zipcode) => {
     let weatherURLbyZip = `${weatherURL}/conditions/q/${zipcode}.json`;
-    debugger;
     return dispatch => {
         return fetch(weatherURLbyZip)
             .then(response => response.json())
-            .then(pinnedCityWeather => dispatch(receivePinnedCityWeather(pinnedCityWeather, cityInfo, zipcode)))
-            .catch(err => console.log('an error occurred', err));
+            .catch(err => console.log('an error occurred', err))
+            .then(weatherInfo => dispatch(
+                receivePinnedCityCurrentWeather(weatherInfo, cityInfo, zipcode)));
     };
 };

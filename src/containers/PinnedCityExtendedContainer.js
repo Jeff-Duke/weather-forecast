@@ -5,7 +5,6 @@ const mapStateToProps = (state, ownProps) => {
   let zipcode = ownProps.params.zip;
   let myWeather = state.pinnedCityExtendedReducer.find(city => zipcode === city.zipcode);
 
-  debugger;
   return {
     weatherInfo: myWeather,
     zipcode
