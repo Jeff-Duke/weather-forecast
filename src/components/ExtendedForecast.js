@@ -12,14 +12,14 @@ const ExtendedForecast = ({ExtendedForecast, zipCode}) => {
 
       <section className="extended-container">
           {ExtendedForecast.forecastday ?
-            <div>
-            <h1>EXTENDED FORECAST</h1>
-            <h1>City: {ExtendedForecast.city}</h1>
-            <br/>
-            <ul>
-            { ExtendedForecast.forecastday.map((day) => <li key={day.period}> <img src={day.icon_url} alt="weather icon" /> {day.title} -- {day.fcttext}</li>)}
-            </ul>
-            </div>
+            <article>
+              <h1>EXTENDED FORECAST</h1>
+              <h1>City: {ExtendedForecast.city}</h1>
+              <br/>
+              <ul>
+                { ExtendedForecast.forecastday.map((day) => <li key={day.period}> <img src={day.icon_url} alt="weather icon" /> {day.title} -- {day.fcttext}</li>)}
+              </ul>
+            </article>
           : <p>Fetching Extended forecast...</p>}
       </section>
     </div>
