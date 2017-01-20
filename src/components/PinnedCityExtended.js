@@ -4,7 +4,7 @@ const PinnedCityExtended = ({
     zipcode,
     weatherInfo
 }) => {
-    
+    debugger;
     return (
         <article>
             {Object.keys(weatherInfo).length ?

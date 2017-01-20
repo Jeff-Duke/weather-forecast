@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchCurrentWeatherByGPS, fetchLocalExtendedForecast } from '../actions/index';
+import { fetchCurrentLocalWeather, fetchLocalExtendedForecast } from '../actions/index';
+import { fetchLocationByPosition } from '../helpers';
 
 import HeaderContainer from '../containers/HeaderContainer';
 
@@ -10,7 +11,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({fetchCurrentWeatherByGPS, fetchLocalExtendedForecast  }, dispatch);
+  return bindActionCreators({fetchCurrentLocalWeather, fetchLocalExtendedForecast  }, dispatch);
 };
 
 class App extends Component {
@@ -21,8 +22,12 @@ class App extends Component {
             return;
         }
         navigator.geolocation.getCurrentPosition((position) => {
-            this.props.fetchCurrentWeatherByGPS(position);
-            this.props.fetchLocalExtendedForecast(position);
+            fetchLocationByPosition(position)
+            .then((cityInfo) => {
+                this.props.fetchCurrentLocalWeather(cityInfo);
+                this.props.fetchLocalExtendedForecast(cityInfo);
+            })
+            .catch(err => console.log(err));
         });
     }
 

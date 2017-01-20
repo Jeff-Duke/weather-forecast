@@ -24,7 +24,8 @@ const Home = ({pinnedCityList}) => {
       </section>
       <Link
         to="/Settings"
-        className="edit-cities">
+        className="edit-cities"
+        >
         Edit Pinned Cities &#10163;
       </Link>
     </div>

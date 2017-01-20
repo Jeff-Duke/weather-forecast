@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { fetchLocationByZip } from '../helpers';
 
 const Settings = ({ pinnedCities, onSubmit }) => {
   let input;
@@ -15,7 +16,9 @@ const Settings = ({ pinnedCities, onSubmit }) => {
           className="add-city-container"
           onSubmit={ (e) => {
             e.preventDefault();
-            onSubmit(input.value);
+            const zipcode = input.value;
+            fetchLocationByZip(zipcode)
+            .then(cityInfo => onSubmit(cityInfo, zipcode));
             input.value=('');
           }}
         >

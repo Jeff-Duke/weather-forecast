@@ -3,13 +3,13 @@ import PinnedCityExtended from '../components/PinnedCityExtended';
 
 const mapStateToProps = (state, ownProps) => {
   let zipcode = ownProps.params.zip;
-  let myWeather = state.pinnedCityReducer.find(city => zipcode === city.zipcode);
+  let myWeather = state.pinnedCityExtendedReducer.find(city => zipcode === city.zipcode);
+
+  debugger;
   return {
     weatherInfo: myWeather,
     zipcode
   };
 };
-
-
 
 export default connect(mapStateToProps)(PinnedCityExtended);
